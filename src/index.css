@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Diplomata&family=Purple+Purse&family=Science+Gothic:wght@100..900&display=swap');
+
+@tailwind utilities;
+@reference "tailwindcss";
+
+
+
+
+
+body {
+  background-color: rgb(128, 117, 117);
+
+}
+
+
+@layer utilities{ 
+  .text-gradient {
+    background: linear-gradient(to bottom, #ffffff, #898989);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}}
+
+
+.cards-container {
+  position: relative;
+  padding: 2rem;
+  background: #8d6868;
+  box-shadow: 2px 8px 20px rgba(2, 2, 3, 0.2);
+}
+.diplomata-regular {
+  font-family: "Diplomata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.science-gothic {
+  font-family: "Science Gothic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "CTRS" 0;
+}
+.science-gothic2 {
+  font-family: "Science Gothic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "CTRS" 0;
+}

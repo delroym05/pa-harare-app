@@ -1,0 +1,25 @@
+.navbar {        
+  top: 0;
+  left: 0;
+  width: 100vw;            
+  height: 60px;
+  background-color: transparent;
+  display: flex;
+  padding: 0 1.5rem;
+  text-align: center;    
+  position: absolute;     
+}
+
+.logo {
+  align-content: center;
+  width: 200px;
+  height: 300px;
+  z-index: -1;
+  transform-origin: center; 
+}
+
+.logo:hover{
+  cursor: pointer;
+}
+
+
