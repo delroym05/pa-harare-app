@@ -13,17 +13,20 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-0">
 
   
-          <div className=" ml-15 opacity-70 hover:opacity-100 transition flex flex-row items-center gap-2" >
-          <a href="whatsapp://send?phone=263 78 645 1907" 
-          target="_blank"
-          className="no-underline text-inherit">
-          <i className="bg-green-400 fa-brands fa-whatsapp"></i>
-          <p>  +263 78 645 1907</p>
-          </a>
-          </div>
+<div className="ml-15 opacity-70 hover:opacity-100 transition flex items-center gap-2">
+  <a
+    href="whatsapp://send?phone=263786451907"
+    target="_blank"
+    className="flex items-center gap-2 no-underline text-inherit"
+  >
+    <i className="fa-brands fa-whatsapp text-green-400 text-xl"></i>
+    <span>+ 263 78 645 1907</span>
+  </a>
+</div>
+
 
           <div className=" ml-15 opacity-70 hover:opacity-100 transition flex items-center gap-2" >
-          <i className="bg-green-400 fa-brands fa-whatsapp">  </i> <p>  +263 71 562 3873</p>
+          <i className=" fa-solid fa-phone-volume">  </i> <p>  +263 71 562 3873</p>
           </div>
 
           <ul className=" ml-2 flex gap-6 text-sm opacity-80">

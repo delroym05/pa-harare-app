@@ -9,6 +9,7 @@ import HeroSlider from './HeroSlider';
 
 
 
+
 export default function HeroCards() {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 560);
   
@@ -47,8 +48,7 @@ export default function HeroCards() {
       <div className={isMobile ?'h-52': 'h-54'}/>
 
       <HeroSlider/>
-
-    <div className='mt-6 h-1.5 flex flex-col '>
+    <div className='mt-5 h-1.5 flex flex-col '>
       <h1 className="hero-title">
        <span>OFFERING</span>
       </h1>
@@ -80,9 +80,14 @@ export default function HeroCards() {
               </AnimatePresence>
               </motion.div>
 
-          </AnimatePresence>)}
+          </AnimatePresence>
+      )}
+      
+      
+     
 
 </div>
+
         </section>
       </motion.div>
 

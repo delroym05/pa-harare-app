@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { color, motion, useMotionValue, useTransform } from "framer-motion";
-import { img1,img10,img2,img3,img4,img5,img6,img7, img9} from '../assets'
-import '../../index.css'
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import { img1, img10, img2, img3, img4, img5, img6, img7, img9 } from '../assets';
+import '../../index.css';
 
 const SwipeCards = () => {
   const [cards, setCards] = useState(cardData);
@@ -21,11 +21,10 @@ const SwipeCards = () => {
   style={{ backgroundColor: "#dab4c0" }}
 >
   
-      {cards.map((card) => {
-        return (
-          <Card key={card.id} cards={cards} setCards={setCards} {...card} />
-        );
-      })}
+{[...cards].reverse().map((card) => (
+  <Card key={card.id} cards={cards} setCards={setCards} {...card} />
+))}
+
     </div>
     </div>
   );
@@ -40,6 +39,7 @@ const Card = ({ id, url, setCards, cards }) => {
 
   const isFront = cards[cards.length - 1]?.id === id;
 
+
   const rotate = useTransform(() => {
     const offset = isFront ? 0 : id % 2 ? 6 : -6;
 
@@ -47,7 +47,7 @@ const Card = ({ id, url, setCards, cards }) => {
   });
 
   const handleDragEnd = () => {
-    if (Math.abs(x.get()) > 100) {
+    if (Math.abs(x.get()) > 70) {
       setCards((pv) => pv.filter((v) => v.id !== id));
     }
   };
@@ -78,8 +78,8 @@ const Card = ({ id, url, setCards, cards }) => {
       }}
       drag={isFront ? "x" : false}
       dragConstraints={{
-        left: -300,
-        right: 300,
+        left: -200,
+        right: 200,
       }}
       onDragEnd={handleDragEnd}
     />
