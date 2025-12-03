@@ -43,6 +43,7 @@ function HeroSlider() {
         grabCursor={true}
         centeredSlides={true}
         loop={true}
+        loopAdditionalSlides={5}
         slidesPerView={'auto'}
         coverflowEffect={{
           rotate: 0,
