@@ -10,8 +10,6 @@ import '../../index.css'
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
 import {
-  threeDtruct,
-  threeDbike,
   img10,
   img13,
   img16,
@@ -62,8 +60,6 @@ function HeroSlider() {
       >
         {[
           restaurant,
-          threeDtruct,
-          threeDbike,
           peanutButter,
           butcher,
           treynet,
@@ -84,13 +80,8 @@ function HeroSlider() {
             key={idx}
             className="swiper-slide-custom"
           >
-            {item.endsWith('.mp4') ||
-            item === threeDtruct ||
-            item === threeDbike ? (
-              <video src={item} autoPlay loop muted className="slide-media" />
-            ) : (
               <img src={item} alt={`slide_${idx}`} className="slide-media" />
-            )}
+            
           </SwiperSlide>
         ))}
       </Swiper>

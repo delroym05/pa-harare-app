@@ -30,6 +30,43 @@ export const SlideTabsExample = () => {
     </div>) }
 
 const SlideTabs = () => {
+
+  useEffect(() => {
+  const sections = ["home", "about", "contact", "services"];
+
+  const handleScroll = () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const el = document.getElementById(section);
+      if (!el) return;
+
+      const top = el.offsetTop - 150; // adjust for navbar height
+      const bottom = top + el.offsetHeight;
+
+      if (window.scrollY >= top && window.scrollY < bottom) {
+        current = section;
+      }
+    });
+
+    if (current) {
+      const tabEl = document.querySelector(`[data-tab="${current}"]`);
+      if (!tabEl) return;
+
+      const { width } = tabEl.getBoundingClientRect();
+      setPosition({
+        left: tabEl.offsetLeft,
+        width,
+        opacity: 1,
+      });
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
@@ -54,44 +91,41 @@ const SlideTabs = () => {
     backdrop-blur-md
     mx-auto
   "
-    >
-     <a className="no-underline" href='#home'> <Tab setPosition={setPosition}>Home</Tab></a> 
-     <a className="no-underline" href="#about"> <Tab setPosition={setPosition}>About </Tab></a> 
-     <a className="no-underline" href="#contact"> <Tab setPosition={setPosition}>Contact</Tab></a> 
-     <a className="no-underline" href='#services'> <Tab setPosition={setPosition}>Services</Tab></a> 
+  >
+    <Tab name="home" setPosition={setPosition}><a className="no-underline text-amber-50" href='#home'>Home</a></Tab>
+    <Tab name="about" setPosition={setPosition}><a className="no-underline text-amber-50" href='#about'>About</a></Tab>
+    <Tab name="services" setPosition={setPosition}><a className="no-underline text-amber-50" href='#services'>Services</a></Tab>
+    <Tab name="contact" setPosition={setPosition}><a className="no-underline text-amber-50" href='#contact'>Contact</a></Tab>
+
 
       <Cursor position={position} />
     </ul>
   );
 };
 
-const Tab = ({ children, setPosition }) => {
+const Tab = ({ children, name, setPosition }) => {
   const ref = useRef(null);
 
   return (
     <li
       ref={ref}
+      data-tab={name}
       onMouseEnter={() => {
-        if (!ref?.current) return;
-
+        if (!ref.current) return;
         const { width } = ref.current.getBoundingClientRect();
-
         setPosition({
           left: ref.current.offsetLeft,
           width,
           opacity: 1,
         });
       }}
-       className="
-    relative z-10 px-2 py-1 uppercase cursor-pointer 
-    text-white text-[0.65rem] 
-    md:text-xs md:px-3 md:py-1.5
-  "
+      className="relative z-10 px-2 py-1 text-transparent uppercase cursor-pointer"
     >
       {children}
     </li>
   );
 };
+
 
 const Cursor = ({ position }) => {
   return (

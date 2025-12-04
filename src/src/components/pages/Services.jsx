@@ -39,7 +39,7 @@ export default function Services() {
     <Element id='services'  smooth='true' duration={500}>
       <div className='flex flex-col gap-5'>
       <div className="services-section" >
-      <h2 className="text-center text-3xl font-bold mb-8 science-gothic text-cyan-950 ">Our Services</h2>
+      <h2 className="text-center text-3xl font-bold mb-8 science-gothic text-cyan-450 ">Our Services</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((service, index) => (
           <motion.div

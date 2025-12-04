@@ -8,7 +8,7 @@ const SwipeCards = () => {
   const [cards, setCards] = useState(cardData);
 
   return (
-    <div className="cards-container">
+    <div>
     <div
      className="
     grid place-items-center 
@@ -17,6 +17,7 @@ const SwipeCards = () => {
     mx-auto mt-10 mb-5
     bg-black
     rounded-md
+    bg-linear-to-t from-gray-600
   "
   style={{ backgroundColor: "#dab4c0" }}
 >
