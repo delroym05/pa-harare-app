@@ -21,13 +21,117 @@ body {
     color: transparent;
 }}
 
-
 .cards-container {
   position: relative;
   padding: 2rem;
-  background: #8d6868;
-  box-shadow: 2px 8px 20px rgba(2, 2, 3, 0.2);
+  border-radius: 1.2rem;
 
+
+  background: linear-gradient(
+      135deg,
+      rgba(15, 15, 15, 0.9),
+      rgba(35, 35, 35, 0.7)
+    ),
+    radial-gradient(
+      circle at top left,
+      rgba(0, 180, 140, 0.1),
+      transparent 180px
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(180, 0, 100, 0.1),
+      transparent 180px
+    );
+
+
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+
+  transform: perspective(1000px) rotateX(1deg);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cards-container:hover {
+
+  transform: perspective(1000px) rotateX(0deg) translateY(-4px);
+  
+
+  box-shadow: 
+    0 6px 25px rgba(0, 0, 0, 0.3),
+    0 3px 12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 200, 160, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+
+.cards-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+.cards-container::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 200, 160, 0.08),
+    rgba(180, 0, 120, 0.08)
+  );
+  z-index: -1;
+  filter: blur(12px);
+  opacity: 0.4;
+  animation: breathe-subtle 6s ease-in-out infinite;
+}
+
+@keyframes breathe-subtle {
+  0%, 100% {
+    opacity: 0.3;
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(15px);
+  }
+}
+
+
+.cards-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.cards-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
 }
 .diplomata-regular {
   font-family: "Diplomata", serif;
